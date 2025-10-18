@@ -21,7 +21,7 @@ fire ball (green)
 
 ## Suggested tasks
 
-* Implement mouse input for pad
+* Implement mouse input for pad - Implemented
 * Improved VFX (ball trail, paddle hit response, brick particle destruction)
 * Better UI (progress bar rather than timer for countdown).
 * GameLoop
@@ -33,3 +33,6 @@ fire ball (green)
 
 # Time Details and Changelist
 <Add information to this section about the time you've taken for this task along with a professional changelist.>
+- Removed #include "PowerupFireBall.h" In PowerupBase.h as this creates a circular dependancy. PowerupFireball is already dependenet on PowerupBase
+- Added Moving the paddle based on the poition of the mouse relative to the paddle. This only applies if left mouse is clicked and is based on the centre of the paddle.
+
