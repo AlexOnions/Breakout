@@ -42,3 +42,7 @@ void Trail::render(sf::RenderWindow& _window) {
 
 	}
 }
+
+void Trail::setFillColor(sf::Color newColor) {
+	color = newColor;
+}

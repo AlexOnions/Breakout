@@ -13,6 +13,7 @@ public:
 	void render(sf::RenderWindow& _window);
 
 	void updateFade();
+	void setFillColor(sf::Color color);
 
 private:
 	std::vector<sf::CircleShape> _segments;
