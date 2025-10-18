@@ -22,7 +22,7 @@ fire ball (green)
 ## Suggested tasks
 
 * Implement mouse input for pad - Implemented
-* Improved VFX (ball trail, paddle hit response, brick particle destruction)
+* Improved VFX (ball trail, paddle hit response, brick particle destruction) - In Progress
 * Better UI (progress bar rather than timer for countdown).
 * GameLoop
 * Better ball physics (Box2D)
