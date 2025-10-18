@@ -35,4 +35,4 @@ fire ball (green)
 <Add information to this section about the time you've taken for this task along with a professional changelist.>
 - Removed #include "PowerupFireBall.h" In PowerupBase.h as this creates a circular dependancy. PowerupFireball is already dependenet on PowerupBase
 - Added Moving the paddle based on the poition of the mouse relative to the paddle. This only applies if left mouse is clicked and is based on the centre of the paddle.
-
+- Added a trail to the ball and power ups. Power up trail is the same as the power up color, ball trail is white.
