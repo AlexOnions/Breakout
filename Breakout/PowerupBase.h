@@ -6,7 +6,7 @@
 #include "Ball.h"
 #include <vector>
 
-#include "PowerupFireBall.h"
+//#include "PowerupFireBall.h" -- Not needed as Power up fire ball depends on Power up base
 
 
 class PowerupBase
