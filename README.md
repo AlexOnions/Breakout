@@ -34,5 +34,5 @@ fire ball (green)
 # Time Details and Changelist
 <Add information to this section about the time you've taken for this task along with a professional changelist.>
 - Removed #include "PowerupFireBall.h" In PowerupBase.h as this creates a circular dependancy. PowerupFireball is already dependenet on PowerupBase
-- Added moving the paddle left and right based on the mouses position. This only happens when left mouse is clicked.
+- Added Moving the paddle based on the poition of the mouse relative to the paddle. This only applies if left mouse is clicked and is based on the centre of the paddle.
 
