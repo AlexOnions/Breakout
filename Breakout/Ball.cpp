@@ -8,6 +8,7 @@ Ball::Ball(sf::RenderWindow* window, float velocity, GameManager* gameManager)
     _sprite.setRadius(RADIUS);
     _sprite.setFillColor(sf::Color::Cyan);
     _sprite.setPosition(0, 300);
+    _trail = Trail(300, 10, sf::Color::White);
 }
 
 Ball::~Ball()
@@ -90,10 +91,14 @@ void Ball::update(float dt)
     {
         _direction.y *= -1; // Bounce vertically
     }
+    sf::Vector2f trailPosition = position + sf::Vector2f(_sprite.getRadius(), _sprite.getRadius());
+    _trail.update(trailPosition);
+
 }
 
 void Ball::render()
 {
+    _trail.render(*_window);
     _window->draw(_sprite);
 }
 
