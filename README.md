@@ -7,6 +7,9 @@ W Kavanagh & N Merchant. Summer 2024
 A/D to move the paddle right and left.
 P to pause.
 
+### Added
+Left Mouse and drag to move the paddle left and right
+
 ## Powerups
 
 big/small paddle (blue)
