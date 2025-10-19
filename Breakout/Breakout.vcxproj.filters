@@ -69,6 +69,9 @@
     <ClCompile Include="Trail.cpp">
       <Filter>TrailsAndEffects</Filter>
     </ClCompile>
+    <ClCompile Include="ScreenShake.cpp">
+      <Filter>TrailsAndEffects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h">
@@ -117,6 +120,9 @@
       <Filter>Powerups</Filter>
     </ClInclude>
     <ClInclude Include="Trail.h">
+      <Filter>TrailsAndEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenShake.h">
       <Filter>TrailsAndEffects</Filter>
     </ClInclude>
   </ItemGroup>

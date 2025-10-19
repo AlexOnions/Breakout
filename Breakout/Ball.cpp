@@ -52,12 +52,15 @@ void Ball::update(float dt)
     if ((position.x >= windowDimensions.x - 2 * RADIUS && _direction.x > 0) || (position.x <= 0 && _direction.x < 0))
     {
         _direction.x *= -1;
+        screenShake.startShake();
     }
 
     // bounce on ceiling
     if (position.y <= 0 && _direction.y < 0)
     {
         _direction.y *= -1;
+        screenShake.startShake();
+
     }
 
     // lose life bounce
@@ -66,6 +69,8 @@ void Ball::update(float dt)
         _sprite.setPosition(0, 300);
         _direction = { 1, 1 };
         _gameManager->loseLife();
+        screenShake.startShake();
+
     }
 
     // collision with paddle
@@ -78,6 +83,7 @@ void Ball::update(float dt)
 
         // Adjust position to avoid getting stuck inside the paddle
         _sprite.setPosition(_sprite.getPosition().x, _gameManager->getPaddle()->getBounds().top - 2 * RADIUS);
+        screenShake.startShake();
     }
 
     // collision with bricks
@@ -86,18 +92,24 @@ void Ball::update(float dt)
     if (collisionResponse == 1)
     {
         _direction.x *= -1; // Bounce horizontally
+        screenShake.startShake();
+
     }
     else if (collisionResponse == 2)
     {
         _direction.y *= -1; // Bounce vertically
+        screenShake.startShake();
+
     }
     sf::Vector2f trailPosition = position + sf::Vector2f(_sprite.getRadius(), _sprite.getRadius());
     _trail.update(trailPosition);
+    screenShake.update();
 
 }
 
 void Ball::render()
 {
+    screenShake.render(*_window);
     _trail.render(*_window);
     _window->draw(_sprite);
 }
