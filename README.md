@@ -5,6 +5,7 @@ W Kavanagh & N Merchant. Summer 2024
 ## controls
 
 A/D to move the paddle right and left.
+<br/>
 P to pause.
 
 ### Added
