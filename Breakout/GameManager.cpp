@@ -38,12 +38,27 @@ void GameManager::update(float dt)
 
     if (_lives <= 0)
     {
-        _masterText.setString("Game over.");
+        _masterText.setString("Game over. Press (R) To Restart");
+
+        //Add option to restart game
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+        {
+            //Restart Game
+            restartGame();
+        }
+
         return;
     }
     if (_levelComplete)
     {
-        _masterText.setString("Level completed.");
+        _masterText.setString("Level completed. Press (R) To Play Again");
+
+        //Add option to restart game
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+        {
+            //Restart Game
+            restartGame();
+        }
         return;
     }
     // pause and pause handling
@@ -122,6 +137,42 @@ void GameManager::startParticleEffect(sf::Vector2f start, sf::Vector2f end)
 {
     particleEffectActive = true;
     particleEffect.setEmitterLine(start, end);// = position;
+}
+
+void GameManager::restartGame()
+{
+    // Delete old objects, reset pointers, particle effect and the game states
+    delete _paddle;
+    delete _ball;
+    delete _brickManager;
+    delete _powerupManager;
+    delete _messagingSystem;
+    delete _ui;
+
+    _paddle = nullptr;
+    _ball = nullptr;
+    _brickManager = nullptr;
+    _powerupManager = nullptr;
+    _messagingSystem = nullptr;
+    _ui = nullptr;
+
+    _time = 0.f;
+    _lives = 3;
+    _pauseHold = 0.f;
+    _levelComplete = false;
+    _powerupInEffect.first = none;
+    _powerupInEffect.second = 0.f;
+    _timeLastPowerupSpawned = 0.f;
+
+    particleEffectActive = false;
+    particleEffect = ParticleEffect(25);
+
+
+    _masterText.setString("");
+
+    // Reinitialize everything
+    initialize();
+
 }
 
 sf::RenderWindow* GameManager::getWindow() const { return _window; }

@@ -20,6 +20,7 @@ public:
     void levelComplete();
     void powerupEffect(POWERUPS pu, float t);
     void startParticleEffect(sf::Vector2f start, sf::Vector2f end);
+    void restartGame();
 
     Paddle* getPaddle() const;
     BrickManager* getBrickManager() const;
