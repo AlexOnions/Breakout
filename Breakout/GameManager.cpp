@@ -6,13 +6,14 @@
 GameManager::GameManager(sf::RenderWindow* window)
     : _window(window), _paddle(nullptr), _ball(nullptr), _brickManager(nullptr), _powerupManager(nullptr),
     _messagingSystem(nullptr), _ui(nullptr), _pause(false), _time(0.f), _lives(3), _pauseHold(0.f), _levelComplete(false),
-    _powerupInEffect({ none,0.f }), _timeLastPowerupSpawned(0.f)
+    _powerupInEffect({ none,0.f }), _timeLastPowerupSpawned(0.f), particleEffect(25)
 {
     _font.loadFromFile("font/montS.ttf");
     _masterText.setFont(_font);
     _masterText.setPosition(50, 400);
     _masterText.setCharacterSize(48);
     _masterText.setFillColor(sf::Color::Yellow);
+    
 }
 
 void GameManager::initialize()
@@ -85,6 +86,9 @@ void GameManager::update(float dt)
     _paddle->update(dt);
     _ball->update(dt);
     _powerupManager->update(dt);
+    if (particleEffectActive) {
+        particleEffect.update();
+    }
 }
 
 void GameManager::loseLife()
@@ -97,6 +101,10 @@ void GameManager::loseLife()
 
 void GameManager::render()
 {
+    if (particleEffectActive) {
+        particleEffect.render(*_window);
+    }
+
     _paddle->render();
     _ball->render();
     _brickManager->render();
@@ -108,6 +116,12 @@ void GameManager::render()
 void GameManager::levelComplete()
 {
     _levelComplete = true;
+}
+
+void GameManager::startParticleEffect(sf::Vector2f start, sf::Vector2f end)
+{
+    particleEffectActive = true;
+    particleEffect.setEmitterLine(start, end);// = position;
 }
 
 sf::RenderWindow* GameManager::getWindow() const { return _window; }
