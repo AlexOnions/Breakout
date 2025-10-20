@@ -27,8 +27,8 @@ fire ball (green)
 
 * Implement mouse input for pad - Implemented
 * Improved VFX (ball trail, paddle hit response, brick particle destruction) - Implemented
-* Better UI (progress bar rather than timer for countdown).
-* GameLoop
+* Better UI (progress bar rather than timer for countdown). - Implemented
+* GameLoop -In Progress
 * Better ball physics (Box2D)
 * Leaderboards
 * More ball types (e.g., multiball, sticky ball [where you shoot the ball from the paddle every time], tiny ball, big ball, brick-tracking ball)
