@@ -42,3 +42,4 @@ fire ball (green)
 - Added a trail to the ball and power ups. Power up trail is the same as the power up color, ball trail is white.
 - Added Screen shake added when the ball hits the paddle, bricks and walls.
 - Added progress bar instead of timer for power ups
+- Added particle effects for when the bricks break
